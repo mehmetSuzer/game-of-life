@@ -1,7 +1,4 @@
 
-# add camera position to draw function
-# infinite space
-
 
 
 import sys
@@ -106,25 +103,7 @@ class Cell:
     def changeState(self):
         self.alive = not self.alive
         self.nextGenAlive = self.alive
-
-       
-class Camera:
-    def __init__(self, x, y, cellWidth, cellHeight):
-        self.x = x
-        self.y = y
-        self.cellWidth = cellWidth
-        self.cellHeight = cellHeight
-
-    def move(self, direction):
-        if direction == UP:
-            self.y -= self.cellHeight
-        elif direction == LEFT:
-            self.x -= self.cellWidth
-        elif direction == DOWN:
-            self.y += self.cellHeight
-        else:
-            self.x += self.cellWidth
-
+        
 
 def redrawWindow(cells, initializing = False):
     # Fill the background and write fps
