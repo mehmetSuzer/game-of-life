@@ -4,6 +4,7 @@ import sys
 import pip
 from subprocess import check_call, call
 from copy import deepcopy
+from time import sleep
 
 
 def install(package):
@@ -22,7 +23,12 @@ except ModuleNotFoundError:
     print("pygame is not installed\n"
         + "The program will try to install it\n"
         + "If it fails, please manually install pygame package\n")
-    install("pygame")
+    sleep(2.5)
+    try:
+        install("pygame")
+    except:
+        print("Failed to install pygame")
+        exit()
 
     
 # Dimensions of the window
