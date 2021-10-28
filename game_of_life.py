@@ -253,7 +253,6 @@ def initCells():
 # All cells are dead at the very beginning
 cells = [[Cell(i, j, cellWidth, cellHeight, False) for j in range(windowWidth//cellWidth)] for i in range((windowHeight-50)//cellHeight)]
 initialPattern = None
-camera = Camera(0, 0, cellWidth, cellHeight)
 running = True
 pause = False
 buttonSelected = None
@@ -295,17 +294,7 @@ while running:
     # Get keys which are pressed
     keys = pygame.key.get_pressed()
         
-    if keys[pygame.K_LEFT] or keys[pygame.K_a]:
-        camera.move(LEFT)
-    elif keys[pygame.K_RIGHT] or keys[pygame.K_d]:
-        camera.move(RIGHT)
-    elif keys[pygame.K_UP] or keys[pygame.K_w]:
-        camera.move(UP)
-    elif keys[pygame.K_DOWN] or keys[pygame.K_s]:
-        camera.move(DOWN)
-
-    # Go back to reset the pattern if you press S
-    # The more you decrease fps, the less sensitive the key press
+    # Go back to reset the pattern if S is pressed
     if keys[pygame.K_s]:
         initCells()
         continue
